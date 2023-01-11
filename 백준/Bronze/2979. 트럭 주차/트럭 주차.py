@@ -6,13 +6,5 @@ for i in range(3):
     for j in range(inn,away):
         di[j] += 1
 
-t = 0
-for k in di.values():
-    if k == 1:
-        t += a
-    elif k == 2:
-        t += b * 2
-    elif k == 3:
-        t += c * 3
-
-print(t)
+li = list(di.values())
+print(a*li.count(1) + 2*b*li.count(2) + 3*c*li.count(3))
