@@ -1,12 +1,14 @@
-a,b,c=map(int,input().split())
+nums = list(map(int,input().split()))
+money = 0
 
-if a==b==c:
-    print(10000+a*1000)
-elif a==b:
-    print(1000+a*100)
-elif b==c:
-    print(1000+b*100)
-elif c==a:
-    print(1000+c*100)
-else:
-    print(max(a,b,c)*100)
+for i in nums:
+    if nums.count(i) == 3:
+        money = 10000 + i * 1000
+        break
+    elif nums.count(i) == 2:
+        money = 1000 + i * 100
+        break
+    else:
+        money = max(nums) * 100
+
+print(money)
