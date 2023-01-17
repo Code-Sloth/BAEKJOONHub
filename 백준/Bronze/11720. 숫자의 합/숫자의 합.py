@@ -1,3 +1,3 @@
-a = int(input())
-b = list(map(int,(input())))
-print(sum(b))
+t = int(input())
+nums = list(map(int,input()))
+print(sum(nums))
