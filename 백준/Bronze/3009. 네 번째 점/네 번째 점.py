@@ -1,13 +1,12 @@
-li_x = []
-li_y = []
-for _ in range(3):
+aa,bb = [0]*3,[0]*3
+for i in range(3):
     a,b = map(int,input().split())
-    li_x.append(a)
-    li_y.append(b)
+    aa[i] = a
+    bb[i] = b
 
-for i in li_x:
-    if li_x.count(i) == 1:
-        print(i,end=' ')
-for j in li_y:
-    if li_y.count(j) == 1:
-        print(j)
+for aaa in aa:
+    if aa.count(aaa) == 1:
+        print(aaa,end=' ')
+for bbb in bb:
+    if bb.count(bbb) == 1:
+        print(bbb)
