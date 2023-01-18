@@ -7,8 +7,7 @@ for i in range(m,n+1):
     for j in range(1,i):
         if i % j == 0:
             t += 1
-            if t > 1:
-                break
+            if t > 1: break
     if t == 1:
         li.append(i)
 if len(li) == 0:
