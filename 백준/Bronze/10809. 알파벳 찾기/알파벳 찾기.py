@@ -1,9 +1,7 @@
 import string
+
+low = list(string.ascii_lowercase)
 s = input()
 
-abc = string.ascii_lowercase
-abc_li = []
-abc_li.extend(abc)
-
-for i in abc_li:
+for i in low:
     print(s.find(i),end=' ')
