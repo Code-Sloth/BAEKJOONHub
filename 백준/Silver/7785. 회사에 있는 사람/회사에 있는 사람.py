@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 di = {}
 for _ in range(int(input())):
     a,b = input().split()
