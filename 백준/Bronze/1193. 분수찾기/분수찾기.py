@@ -1,23 +1,16 @@
 import sys
-n = int(sys.stdin.readline())
-n2 = 1
-t = 0
+input = sys.stdin.readline
 
-while n > t:
-    n2 += 1
-    if n2 % 2 == 0:
-        for i in range(1,n2):
-            cnt1 = n2-i
-            cnt2 = i
-            t += 1
-            if n == t:
-                break
-    else:
-        for j in range(1,n2):
-            cnt1 = j
-            cnt2 = n2-j
-            t += 1
-            if n == t:
-                break
+n = int(input())
 
-print(f'{cnt1}/{cnt2}')
+
+for i in range(4473):
+    if n <= (i*(i+1))//2:
+        bn = i + 1
+        break
+
+subtra = (bn*(bn-1))//2 - n + 1
+if (bn - 1) % 2 != 0:
+    print(f'{subtra}/{bn-subtra}')
+else:
+    print(f'{bn-subtra}/{subtra}')
