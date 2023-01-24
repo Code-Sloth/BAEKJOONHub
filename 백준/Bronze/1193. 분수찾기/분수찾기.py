@@ -3,14 +3,13 @@ input = sys.stdin.readline
 
 n = int(input())
 
+i = 0
+while 1:
+    i += 1
+    if n <= (i*(i+1))//2:break
 
-for i in range(4473):
-    if n <= (i*(i+1))//2:
-        bn = i + 1
-        break
-
-subtra = (bn*(bn-1))//2 - n + 1
-if (bn - 1) % 2 != 0:
-    print(f'{subtra}/{bn-subtra}')
+subtra = (i*(i+1))//2 - n + 1
+if i % 2 != 0:
+    print(f'{subtra}/{i+1-subtra}')
 else:
-    print(f'{bn-subtra}/{subtra}')
+    print(f'{i+1-subtra}/{subtra}')
