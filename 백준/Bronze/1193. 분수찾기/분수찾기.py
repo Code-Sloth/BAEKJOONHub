@@ -4,9 +4,8 @@ input = sys.stdin.readline
 n = int(input())
 
 i = 0
-while 1:
+while n > (i*(i+1))//2:
     i += 1
-    if n <= (i*(i+1))//2:break
 
 subtra = (i*(i+1))//2 - n + 1
 if i % 2 != 0:
