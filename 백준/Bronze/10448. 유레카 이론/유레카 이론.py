@@ -1,19 +1,15 @@
 import sys
 input = sys.stdin.readline
 
-li = [0] * 45
-for i in range(1,46):
-    li[i-1] = i*(i+1)//2
+li = [i*(i+1)//2 for i in range(1,46)]
 
+def ureka(li, n):
+    for i in li:
+        for j in li:
+            for k in li:
+                if i + j + k == n:
+                    return 1
+    return 0
+            
 for _ in range(int(input())):
-    n = int(input())
-    is_T = False
-    for i in range(45):
-        for j in range(45):
-            for k in range(45):
-                if li[i] + li[j] + li[k] == n:
-                    is_T = True
-                    break
-            if is_T == True:break
-        if is_T == True:break
-    print(int(is_T))
+    print(ureka(li,int(input())))
