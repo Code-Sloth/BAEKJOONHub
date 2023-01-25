@@ -1,6 +1,3 @@
-import sys
-input = sys.stdin.readline
-
 n = 666
 i = 1
 num = int(input())
