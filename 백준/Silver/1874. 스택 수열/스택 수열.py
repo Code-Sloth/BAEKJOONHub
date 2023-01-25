@@ -1,26 +1,23 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-stack = []
-answer = []
-flag = 0
-cur = 1
-for i in range(n):
-    num = int(input())
-    while cur <= num:
-        stack.append(cur)
-        answer.append("+")
-        cur += 1
+st = []
+pl = []
 
-    if stack[-1] == num:
-        stack.pop()
-        answer.append("-")
+c = 1
+is_ = 1
+for _ in range(int(input())):
+    n = int(input())
+    while c <= n:
+        st.append(c)
+        pl.append('+')
+        c += 1
+    if st[-1] == n:
+        st.pop()
+        pl.append('-')
     else:
-        print("NO")
-        flag = 1
-        break               
-
-if flag == 0:
-    for i in answer:
-        print(i)
+        is_ = 0
+        print('NO')
+        break
+if is_:
+    print(*pl,sep='\n')
