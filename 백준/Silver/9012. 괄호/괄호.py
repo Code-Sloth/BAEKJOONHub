@@ -1,19 +1,8 @@
 import sys
 input = sys.stdin.readline
 
-t = int(input())
-
-for _ in range(t):
+for _ in range(int(input())):
     s = input().strip()
-
-    if len(s) % 2 == 1:print('NO')
-
-    while len(s) % 2 == 0:
-        if '()' in s:
-            s = s.replace('()','')
-        else:
-            print('NO')
-            break
-        if len(s) == 0:
-            print('YES')
-            break
+    while '()' in s:
+        s = s.replace('()','')
+    print('NO') if s else print('YES')
