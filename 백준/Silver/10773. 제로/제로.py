@@ -1,9 +1,8 @@
 import sys
 input = sys.stdin.readline
 
-k = int(input())
-st = []
-for _ in range(k):
+li = []
+for _ in range(int(input())):
     n = int(input())
-    st.pop() if n == 0 else st.append(n)
-print(sum(st))
+    li.append(n) if n!=0 else li.pop()
+print(sum(li))
