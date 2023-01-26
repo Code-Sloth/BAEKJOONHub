@@ -1,33 +1,18 @@
 import sys
 input = sys.stdin.readline
 
-while True:
-    a = input()
-    if a[0] == '.':
-        break
-    c = 'yes'
-    stack = []
-    for i in a:
-        if i == '(' or  i == '[':
-            stack.append(i)
-        elif i == ')':
-            if stack:
-                t = stack.pop()
-                if t != '(':
-                    c = 'no'
-                    break
-            else:
-                c = 'no'
-                break
-        elif i == ']':
-            if stack:
-                t = stack.pop()
-                if t != '[':
-                    c = 'no'
-                    break
-            else:
-                c = 'no'
-                break
-    if stack:
-        c = 'no'
-    print(c)
+
+li = '[]()'
+
+while 1:
+    s = input()
+    if s[0] == '.':break
+    st_s = ''
+    for i in s:
+        if i in li:
+            st_s += i
+    while '[]' in st_s or '()' in st_s:
+        st_s = st_s.replace('[]','')
+        st_s = st_s.replace('()','')
+
+    print('no') if st_s else print('yes')
