@@ -1,10 +1,7 @@
-n = 0
-l = []
+import sys
+input = sys.stdin.readline
 
+se = set()
 for i in range(10):
-    a = int(input())
-    if (a%42) not in l:
-        l.append(a%42)
-        n += 1
-
-print(n)
+    se.add(int(input())%42)
+print(len(se))
