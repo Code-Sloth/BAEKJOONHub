@@ -2,9 +2,7 @@ import sys
 input = sys.stdin.readline
 
 import heapq as hq
-
 h = []
-hq.heapify(h)
 
 for _ in range(int(input())):
     n = int(input())
@@ -14,7 +12,4 @@ for _ in range(int(input())):
             a = hq.heappop(h)
             print(a[1])
     else:
-        if n < 0:
-            hq.heappush(h,(-n,n))
-        else:
-            hq.heappush(h,(n,n))
+        hq.heappush(h,(-n,n)) if n < 0 else hq.heappush(h,(n,n))
