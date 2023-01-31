@@ -10,14 +10,14 @@ for _ in range(int(input())):
     gender, i = map(int,input().split())
     if gender == 1:
         for k in range(i,n+1,i):
-            zeroone(li,k)
+            li[k] ^= 1
     elif gender == 2:
-        zeroone(li,i)
+        li[i] ^= 1
         for k in range(1,n//2+1):
             if i-k < 1 or i+k > n:break
             if li[i-k] == li[i+k]:
-                zeroone(li,i-k)
-                zeroone(li,i+k)
+                li[i-k] ^= 1
+                li[i+k] ^= 1
             else:break
 
 for i in range(1,n+1):
