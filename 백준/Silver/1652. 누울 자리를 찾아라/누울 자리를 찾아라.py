@@ -3,22 +3,19 @@ input = sys.stdin.readline
 
 n = int(input())
 li = [list(input().strip()) for _ in range(n)]
-xx,yy = 0,0
+li2 = [[0]*n for _ in range(n)]
+for i in range(n):
+    for j in range(n):
+        li2[i][j] = li[j][i]
 
 for i in range(n):
-    x = 0
-    for j in range(n):
-        if li[i][j] == '.': x += 1
-        else: x = 0
-        if x == 2:
-            xx += 1
+    li[i] = ''.join(li[i])
+    li2[i] = ''.join(li2[i])
 
+x,y = 0,0
 for i in range(n):
-    y = 0
-    for j in range(n):
-        if li[j][i] == '.': y += 1
-        else: y = 0
-        if y == 2:
-            yy += 1
-
-print(xx,yy)
+    for j in li[i].split('X'):
+        if '..' in j: x += 1
+    for j in li2[i].split('X'):
+        if '..' in j: y += 1
+print(x,y)
