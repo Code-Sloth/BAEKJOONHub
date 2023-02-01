@@ -1,23 +1,23 @@
-import sys
-input = sys.stdin.readline
-sys.setrecursionlimit(10**9)
+from sys import stdin
 
-from collections import deque
+n = int(stdin.readline())
+v = int(stdin.readline())
 
-n = int(input())
-m = int(input())
-g = [[] for _ in range(n+1)]
-for _ in range(m):
-    a, b = map(int,input().split())
-    g[a] += [b]
-    g[b] += [a]
-vi = [0] * (n+1)
+graph = [ [] for _ in range(n+1) ]
+visited = [0] * (n+1)
 
-def dfs(v):
-    vi[v] = 1
-    for i in g[v]:
-        if not vi[i]:
-            dfs(i)
+for i in range(v) : 
+    a, b = map(int, stdin.readline().split())
+
+    graph[a] += [b]
+    graph[b] += [a]
+
+def dfs(k) : 
+    visited[k] = 1
+
+    for nx in graph[k] : 
+        if visited[nx] == 0 : 
+            dfs(nx)
 
 dfs(1)
-print(vi.count(1)-1)
+print(sum(visited)-1)
