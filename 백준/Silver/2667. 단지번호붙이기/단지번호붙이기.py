@@ -1,23 +1,23 @@
 import sys
 input = sys.stdin.readline
+sys.setrecursionlimit(10**8)
 
 n = int(input())
 g = [list(map(int,input().strip())) for _ in range(n)]
 t = 0
 result = 0
 tt = []
-
+d = [(1,0),(-1,0),(0,1),(0,-1)]
 def dfs(i,j):
     global t
     if i < 0 or i >= n or j < 0 or j >= n:
         return False
-    if g[i][j] == 1:
+    if g[i][j]:
         t += 1
         g[i][j] = 0
-        dfs(i-1,j)
-        dfs(i,j-1)
-        dfs(i+1,j)
-        dfs(i,j+1)
+        for dx, dy in d:
+            nx, ny = i + dx, j + dy
+            dfs(nx,ny)
         return True
     return False
 
