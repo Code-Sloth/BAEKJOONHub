@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 n = int(input())
 set_74 = [{'4'},{'7'},{'4','7'},{'7','4'}]
 
