@@ -15,7 +15,6 @@ vi = [0] * (n+1)
 
 def dfs(v):
     vi[v] = 1
-    g[v].sort()
     for i in g[v]:
         if not vi[i]:
             dfs(i)
