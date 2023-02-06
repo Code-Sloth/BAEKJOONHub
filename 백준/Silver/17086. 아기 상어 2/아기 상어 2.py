@@ -7,11 +7,12 @@ g = [list(map(int,input().split())) for _ in range(n)]
 q = deque([])
 d = [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]
 
-for i in range(n):
-    for j in range(m):
-        if g[i][j]: q.append((i,j))
-
 def bfs():
+    
+    for i in range(n):
+        for j in range(m):
+            if g[i][j]: q.append((i,j))
+
     while q:
         x,y = q.popleft()
         for dx,dy in d:
