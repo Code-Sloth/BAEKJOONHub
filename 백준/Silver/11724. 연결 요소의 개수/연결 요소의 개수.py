@@ -8,6 +8,7 @@ def dfs(x):
         if not vi[i]:
             vi[i] = 1
             dfs(i)
+    return 1
 
 n, m = map(int,input().split())
 g = [[] for _ in range(n+1)]
@@ -20,6 +21,5 @@ for i in range(m):
 t = 0
 for i in range(1,n+1):
     if not vi[i]:
-        dfs(i)
-        t += 1
+        t += dfs(i)
 print(t)
