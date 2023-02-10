@@ -1,7 +1,7 @@
 n = int(input())
-t=1
-if n ==0:print(1)
-else:
-    for i in range(1,n+1):
-        t *= i
-    print(t)
+
+di = {0:1,1:1}
+def f(n):
+    if n in di: return di[n]
+    else: return n * f(n-1)
+print(f(n))
