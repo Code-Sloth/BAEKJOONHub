@@ -1,7 +1,5 @@
 n = int(input())
-
-di = {0:1,1:1}
-def f(n):
-    if n in di: return di[n]
-    else: return n * f(n-1)
-print(f(n))
+def fac(n):
+  if n <= 1: return 1
+  return n * fac(n-1)
+print(fac(n))
