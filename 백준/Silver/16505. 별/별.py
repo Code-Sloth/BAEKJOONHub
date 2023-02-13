@@ -11,9 +11,12 @@ def star(n,i,j):
         return
     if n == 1:
         g[i][j],g[i][j+1],g[i+1][j] = '*','*','*'
+        return
+
+    nn = 2**n//2
     star(n-1,i,j)
-    star(n-1,i+2**n//2,j)
-    star(n-1,i,j+2**n//2)
+    star(n-1,i+nn,j)
+    star(n-1,i,j+nn)
 
 star(n,0,0)
 for i in g:
