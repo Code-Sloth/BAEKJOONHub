@@ -9,8 +9,7 @@ def aka(s):
     l = s[0:len(s)//2]
     r = s[(len(s)+1)//2:len(s)]
     if l != r[::-1]: return 0
-    if not aka(l) or not aka(r): return 0
+    if not aka(l): return 0
     else: return 1
 
-if aka(s): print('AKARAKA')
-else: print('IPSELENTI')
+print('AKARAKA') if aka(s) else print('IPSELENTI')
