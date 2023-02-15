@@ -9,7 +9,7 @@ g = [list(map(int,input().split())) for _ in range(n)]
 def divide(n,arr):
     global li
     if n == 1:
-        return
+        return arr[0][0]
     li = [[0]* (n//2) for _ in range(n//2)]
     for i in range(0,n,2):
         for j in range(0,n,2):
@@ -18,7 +18,6 @@ def divide(n,arr):
                 for j2 in range(2):
                     mx.append(arr[i+i2][j+j2])
             li[i//2][j//2] = sorted(mx)[2]
-    divide(n//2,li)
+    return divide(n//2,li)
 
-divide(n,g)
-print(li[0][0])
+print(divide(n,g))
