@@ -3,6 +3,10 @@ input = sys.stdin.readline
 from collections import deque
 
 def bfs():
+    for i in range(n):
+        for j in range(m):
+            if g[i][j] == 1:
+                q.append((i,j))
     while q:
         x, y = q.popleft()
         for dx,dy in d:
@@ -15,13 +19,10 @@ m, n = map(int,input().split())
 g = [list(map(int,input().split())) for _ in range(n)]
 q = deque()
 d = [(1,0),(-1,0),(0,1),(0,-1)]
-
-for i in range(n):
-    for j in range(m):
-        if g[i][j] == 1:
-            q.append((i,j))
-
+t = 0
+           
 bfs()
+
 max_g = -2
 for i in range(n):
     for j in range(m):
