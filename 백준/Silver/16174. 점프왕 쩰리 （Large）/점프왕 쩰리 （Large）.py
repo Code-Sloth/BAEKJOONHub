@@ -16,7 +16,8 @@ def bfs(x,y):
                 nx,ny = x+dx, y+dy
                 if 0 <= nx < n and 0 <= ny < n and not vi[nx][ny]:
                     if g[nx][ny] == -1:
-                        return print('HaruHaru')
+                        print('HaruHaru')
+                        sys.exit()
                     vi[nx][ny] = 1
                     q.append((nx,ny))
     return print('Hing')
