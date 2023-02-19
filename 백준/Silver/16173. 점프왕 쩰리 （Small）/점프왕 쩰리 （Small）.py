@@ -15,6 +15,7 @@ def dfs(x,y):
             if 0 <= nx < n and 0 <= ny < n:
                 if g[nx][ny] == -1:
                     t = 1
+                    return
                 else: dfs(nx,ny)
 
 dfs(0,0)
