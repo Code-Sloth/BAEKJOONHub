@@ -5,7 +5,6 @@ from collections import deque
 n = int(input())
 g = [list(map(int,input().split())) for _ in range(n)]
 d = [(1,0),(-1,0),(0,1),(0,-1)]
-cnt = []
 
 def bfs(x,y,height):
     q = deque([(x,y)])
@@ -18,13 +17,15 @@ def bfs(x,y,height):
                 q.append((nx,ny))
     return 1
 
- 
-for h in range(min(map(min,g))-1,max(map(max,g))):
+if min(map(min,g)) == max(map(max,g)): print(1); exit()
+
+max_t = 0
+for h in range(min(map(min,g)),max(map(max,g))):
     t = 0
     vi = [[0]* n for _ in range(n)]
     for i in range(n):
         for j in range(n):
             if g[i][j] > h and not vi[i][j]:
                 t += bfs(i,j,h)
-    cnt.append(t)
-print(max(cnt))
+    max_t = max(max_t,t)
+print(max_t)
