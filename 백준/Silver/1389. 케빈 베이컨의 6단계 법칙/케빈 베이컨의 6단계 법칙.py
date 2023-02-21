@@ -15,18 +15,21 @@ def bfs(x,end):
     while q:
         x = q.popleft()
         if x == end:
-            cnt.append(vi[x])
+            cnt[i] += [vi[x]]
+            cnt[end] += [vi[x]]
         for nx in g[x]:
             if not vi[nx]:
                 vi[nx] = vi[x] + 1
                 q.append(nx)
 
-kevin = []
+cnt = [[] for _ in range(n+1)]
+min_cnt = int(1e9)
 for i in range(1,n+1):
-    cnt = []
-    for j in range(1+n+1):
-        if i != j:
+    for j in range(1,n+1):
+        if i < j:
             vi = [0] * (n+1)
             bfs(i,j)
-    kevin.append(sum(cnt))
-print(kevin.index(min(kevin))+1)
+    if min_cnt > sum(cnt[i]):
+        min_cnt = sum(cnt[i])
+        sol = i
+print(sol)
