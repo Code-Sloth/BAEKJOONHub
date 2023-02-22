@@ -1,28 +1,31 @@
 import sys
 input = sys.stdin.readline
-from collections import deque
+import heapq as hq
 
-inf = int(1e9)
-n, m, d, x = map(int,input().split())
+INF = int(1e9)
+n, m, k, x = map(int,input().split())
 g = [[] for _ in range(n+1)]
-dis = [0]*(n+1)
-cnt = []
+dis = [INF] * (n+1)
 
 for _ in range(m):
-    a, b = map(int,input().split())
-    g[a] += [b]
+  a, b = map(int,input().split())
+  g[a].append(b)
 
-def bfs(x):
-    q = deque([x])
-    dis[x] = 1
-    while q:
-        x = q.popleft()
-        for nx in g[x]:
-            if not dis[nx]:
-                dis[nx] = dis[x] + 1
-                q.append(nx)
-        if dis[x]-1 == d:
-            cnt.append(x)
-            
-bfs(x)
-print(*sorted(cnt),sep='\n') if cnt else print(-1)
+def dijkstra(x):
+  q = []
+  hq.heappush(q, (0, x))
+  dis[x] = 0
+  while q:
+    d, now = hq.heappop(q)
+    if dis[now] < d:continue
+    if d == k:
+      cnt.append(now)
+      continue
+    for i in g[now]:
+      cost = d + 1
+      if cost < dis[i]:
+        dis[i] = cost
+        hq.heappush(q,(cost, i))
+cnt = []
+dijkstra(x)
+print(*cnt,sep='\n') if cnt else print(-1)
