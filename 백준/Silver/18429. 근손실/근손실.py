@@ -15,6 +15,7 @@ for i in permutations(a,n):
         t = t + j - k
         if t < 0:
             is_500 = False
+            break
     if is_500:
         result += 1
 
