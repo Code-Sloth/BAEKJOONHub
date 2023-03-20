@@ -9,8 +9,8 @@ def dfs(x, t, size):
     global maxsize
     if t < 0: return
 
-    if t >= 0:
-        maxsize = max(maxsize,size)
+    maxsize = max(maxsize,size)
+    
     if x+1 <= n:
         dfs(x+1, t-1, size+snow[x+1])
     if x+2 <= n:
