@@ -7,13 +7,9 @@ g = list(map(int,input().split()))
 
 def binary(st,end):
     if st > end: return end
-    
-    mid = (st+end)//2
-    length = 0
 
-    for i in g:
-        if i > mid:
-            length += i - mid
+    mid = (st+end)//2
+    length = sum(i-mid for i in g if i > mid)
 
     if length >= m:
         return binary(mid+1, end)
