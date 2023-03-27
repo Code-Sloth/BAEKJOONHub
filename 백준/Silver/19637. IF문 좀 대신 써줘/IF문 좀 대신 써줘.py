@@ -12,6 +12,5 @@ for i in range(n):
     nums.append(int(b))
 
 for _ in range(m):
-    num = int(input())
-    i = bisect.bisect_left(nums, num)
+    i = bisect.bisect_left(nums, int(input()))
     print(name[i])
