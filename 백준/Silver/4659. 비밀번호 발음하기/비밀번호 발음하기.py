@@ -1,7 +1,7 @@
 import sys
 input = sys.stdin.readline
 
-g = ['a','e','i','o','u']
+g = {'a','e','i','o','u'}
 
 while 1:
     s = input().rstrip()
@@ -11,7 +11,6 @@ while 1:
     is_1 = False
     is_2 = True
     is_3 = True
-    t = 0
     for i in range(len(s)):
         if s[i] in g:
             is_1 = True
