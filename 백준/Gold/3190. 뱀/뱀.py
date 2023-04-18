@@ -6,7 +6,7 @@ from collections import deque
 
 n = int(input())
 apple = int(input())
-g = [[0]*(n+1) for _ in range(n+1)]
+g = [[0]*n for _ in range(n)]
 for i in range(apple):
     a,b = map(int,input().split())
     g[a-1][b-1] = 2
