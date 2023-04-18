@@ -5,10 +5,12 @@ r,c = map(int,input().split())
 g = [list(input().rstrip()) for _ in range(r)]
 d = [(1,0),(-1,0),(0,1),(0,-1)]
 se = set()
+index = set()
 
 for x in range(r):
     for y in range(c):
         if g[x][y] == 'X':
+            index.add((x,y))
             t = 0
             for dx,dy in d:
                 if 0 <= x+dx < r and 0 <= y+dy < c:
@@ -17,18 +19,15 @@ for x in range(r):
                 else: t += 1
             if t >= 3:
                 se.add((x,y))
+                
 for x,y in se:
     g[x][y] = '.'
+    if (x,y) in index:
+        index.remove((x,y))
 
-mxx,mxy,mnx,mny = -1,-1,int(1e9),int(1e9)
-for x in range(r):
-    for y in range(c):
-        if g[x][y] == 'X':
-            if mxx < x: mxx = x
-            if mxy < y: mxy = y
-            if mnx > x: mnx = x
-            if mny > y: mny = y
+x = sorted(index, key=lambda x:x[0])
+y = sorted(index, key=lambda x:x[1])
 
 for i in range(r):
-    if mnx <= i <= mxx:
-        print(''.join(g[i][mny:mxy+1]))
+    if x[0][0] <= i <= x[-1][0]:
+        print(''.join(g[i][y[0][1]:y[-1][1]+1]))
