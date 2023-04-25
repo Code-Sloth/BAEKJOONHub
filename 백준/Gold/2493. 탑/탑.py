@@ -2,16 +2,16 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-g = list(map(int,input().split()))
-result = [0] * n
+g = [0] + list(map(int,input().split()))
+result = [0] * (n+1)
 
-for i in range(1, n):
-    target = i-1
-    while target > -1:
-        if g[target] >= g[i]:
-            result[i] = target + 1
+for right in range(1, n+1):
+    left = right-1
+    while left:
+        if g[left] >= g[right]:
+            result[right] = left
             break
         else:
-            target = result[target] - 1
+            left = result[left]
 
-print(' '.join(map(str,result)))
+print(' '.join(map(str,result[1:])))
